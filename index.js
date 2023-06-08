@@ -3,12 +3,16 @@ const { connection } = require('./db');
 const { userRoute } = require('./Routes/user.routes');
 const { blogRoute } = require('./Routes/blogs.route');
 require('dotenv').config()
+const cors = require('cors')
 
 // setting a port 
 const PORT = process.env.PORT || 3000
 
 // creating instance of express
 const app = express();
+
+// usins cors for cross orgin platform
+    app.use(cors())
 
 // using a inbuld middleware to parse the req.body;
     app.use(express.json())
